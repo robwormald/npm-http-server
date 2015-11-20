@@ -2,15 +2,10 @@
 require('babel-core/register')
 
 var express = require('express')
-//var npm = require('npm');
 var serveNPMPackageFile = require('./modules/serveNPMPackageFile').default
 var port = process.env.PORT || process.env.npm_package_config_port
 var app = express()
-var installNpmModules = require('./modules/bundler').installNpmModules
-var requestNpmPackage = require('./modules/bundler').requestNpmPackage
-var checkIfBundleExists = require('./modules/bundler').checkIfBundleExists
-var buildWithWebpack = require('./modules/bundler').buildWithWebpack
-var deleteModules = require('./modules/bundler').deleteModules
+var { installNpmModules, requestNpmPackage, checkIfBundleExists, buildWithWebpack, deleteModules } = require('./modules/bundler')
 
 app.disable('x-powered-by')
 app.set('view engine', 'ejs')
