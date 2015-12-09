@@ -12,7 +12,7 @@ import resolveFile from './resolveFile'
 import getProperty from './getProperty'
 import getMaxAge from './getMaxAge'
 
-const TmpDir = tmpdir()
+const TmpDir = __dirname + '/packages'
 
 /**
  * Serves a file from an NPM package. Supported URL schemes are:
@@ -41,6 +41,7 @@ function serveNPMPackageFile(req, res) {
     version = 'latest' // Use the latest version by default
 
   let tarballDir = joinPaths(TmpDir, packageName + '-' + version)
+
 
   function tryToFinish() {
     if (filename) {

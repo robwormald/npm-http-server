@@ -5,6 +5,7 @@ import { get } from 'request'
 
 function getPackage(tarballURL, outputDir, callback) {
   mkdirp(outputDir, function (error) {
+    
     if (error) {
       callback(error)
     } else {
